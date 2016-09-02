@@ -453,6 +453,7 @@
 				759DC69B1D79A5B600C23F56 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		759DC69C1D79A5B600C23F56 /* Build configuration list for PBXNativeTarget "IMFlickrOAuthTests" */ = {
 			isa = XCConfigurationList;
@@ -461,6 +462,7 @@
 				759DC69E1D79A5B600C23F56 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
