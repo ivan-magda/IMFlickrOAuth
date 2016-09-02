@@ -20,34 +20,31 @@
  * THE SOFTWARE.
  */
 
-#import <XCTest/XCTest.h>
+#import "CryptUtils.h"
+#import <CommonCrypto/CommonDigest.h>
+#import <CommonCrypto/CommonHMAC.h>
 
-@interface IMFlickrOAuthTests : XCTestCase
+@implementation CryptUtils
 
-@end
-
-@implementation IMFlickrOAuthTests
-
-- (void)setUp {
-    [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-}
-
-- (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
-}
-
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
-}
-
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
+/**
+ * Generates HMAC-SHA1 base64 encoded string.
+ */
++ (NSString * _Nonnull)hmacsha1EncryptedStringForString:(NSString * _Nonnull)string
+                                              secretKey:(NSString * _Nonnull)key {
+    NSData *secretData = [key dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *stringData = [string dataUsingEncoding:NSUTF8StringEncoding];
+    
+    const void *keyBytes = secretData.bytes;
+    const void *dataBytes = stringData.bytes;
+    
+    unsigned char cHMAC[CC_SHA1_DIGEST_LENGTH];
+    
+    CCHmac(kCCHmacAlgSHA1, keyBytes, secretData.length, dataBytes, stringData.length, cHMAC);
+    NSData *HMAC = [[NSData alloc]initWithBytes:cHMAC length:sizeof(cHMAC)];
+    
+    NSString *hash = [HMAC base64EncodedStringWithOptions: 0];
+    
+    return hash;
 }
 
 @end

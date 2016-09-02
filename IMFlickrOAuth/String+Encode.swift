@@ -20,34 +20,18 @@
  * THE SOFTWARE.
  */
 
-#import <XCTest/XCTest.h>
+import Foundation
 
-@interface IMFlickrOAuthTests : XCTestCase
-
-@end
-
-@implementation IMFlickrOAuthTests
-
-- (void)setUp {
-    [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+extension String {
+    
+    func urlEncodedString() -> String {
+        let ignoredCharacters = NSCharacterSet(charactersInString: "% /'\"?=&+<>;:!").invertedSet
+        return stringByAddingPercentEncodingWithAllowedCharacters(ignoredCharacters)!
+    }
+    
+    func oauthEncodedString() -> String {
+        let ignoredCharacters = NSCharacterSet(charactersInString: "%:/?#[]@!$&'()*+,;=").invertedSet
+        return stringByAddingPercentEncodingWithAllowedCharacters(ignoredCharacters)!
+    }
+    
 }
-
-- (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
-}
-
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
-}
-
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
-}
-
-@end
