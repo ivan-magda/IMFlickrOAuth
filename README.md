@@ -18,7 +18,7 @@ let oauth = IMFlickrOAuth(
             consumerKey:    "********",
             consumerSecret: "********",
             callbackURL:    "flickr-oauth://oauth-callback/flickr"
-        )
+)
         
 oauth.authorizeWithPermission(.Read) { result in
             switch result {
@@ -29,7 +29,7 @@ oauth.authorizeWithPermission(.Read) { result in
             case .Failure(let error):
                 print(error.localizedDescription)
             }
-        }
+}
 ```
 
 See demo project for more examples
