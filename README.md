@@ -9,7 +9,7 @@ IMFlickrOAuth is packaged as a Cocoa Touch framework. Currently this is the simp
 * Drag IMFlickrOAuth.xcodeproj to your project in the Project Navigator.
 * Select your project and then your app target. Open the Build Phases panel.
 * Expand the Target Dependencies group, and add IMFlickrOAuth framework.
-* import IMFlickrOAuth whenever you want to use OAuthSwift.
+* import IMFlickrOAuth whenever you want to use IMFlickrOAuth.
 
 ## Examples
 
