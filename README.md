@@ -1,3 +1,6 @@
+![License](https://img.shields.io/npm/l/express.svg)
+[![codebeat badge](https://codebeat.co/badges/50e83327-c15d-4bb4-b64c-c69fcd4d2e63)](https://codebeat.co/projects/github-com-vanyaland-imflickroauth-master)
+
 # IMFlickrOAuth
 
 Flickr OAuth library.
